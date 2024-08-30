@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Mim</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+        .header-bg {
+            background: linear-gradient(45deg, #E6B9E4, #6610f2);
+        }
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .card-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .card-footer {
+            background-color: #f8f9fa;
+            border-top: none;
+        }
+        footer {
+            background-color: #343a40;
+            color: #f8f9fa;
+        }
+        footer a {
+            color: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    <header class="header-bg text-white text-center py-5 mb-5">
+        <h1 class="display-4">Sobre Mim</h1>
+    </header>
+
+    <div class="container">
+        <section class="mb-5">
+            <div class="card p-4">
+                <h2 class="card-title text-secondary">Biografia</h2>
+                <div class="text-center">
+                <img src="{% static 'img/aurea.jpeg' %}" alt="Minha Foto" class="img-fluid rounded-circle" style="width: 200px; height: 200px;">
+                </div>
+                <p class="card-text mt-4">{{ sobre.biografia }}</p>
+            </div>
+        </section>
+    </div>
+
+    <footer class="text-center py-4 mt-5">
+        <div class="container">
+            <p>&copy; 2024 Meu Blog Profissional. Todos os direitos reservados.</p>
+            <p>Siga-me nas redes sociais: 
+                <a href="#" class="text-decoration-none">LinkedIn</a> | 
+                <a href="#" class="text-decoration-none">GitHub</a> | 
+                <a href="#" class="text-decoration-none">Twitter</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

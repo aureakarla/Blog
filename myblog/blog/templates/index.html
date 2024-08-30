@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Blog Profissional</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background: #e9ecef;
+            color: #495057;
+            font-family: 'Roboto', sans-serif;
+        }
+        .header-bg {
+            background: linear-gradient(135deg, #E6B9E4 0%, #D8A7D1 100%);
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            border-bottom: 6px solid #D8A7D1;
+        }
+        .header-bg h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+        }
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 2rem;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.3);
+        }
+        .card-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #D8A7D1;
+            font-weight: 600;
+        }
+        .card-text {
+            font-size: 1.2rem;
+            color: #666;
+        }
+        .btn-primary {
+            background-color: #D8A7D1;
+            border-color: #D8A7D1;
+            border-radius: 30px;
+            padding: 12px 24px;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #C58DCE;
+            border-color: #C58DCE;
+        }
+        footer {
+            background-color: #343a40;
+            color: #f8f9fa;
+            padding: 40px 0;
+            text-align: center;
+        }
+        footer a {
+            color: #f8f9fa;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        footer a:hover {
+            color: #D8A7D1;
+        }
+        .list-group-item {
+            background-color: #fff;
+            border: none;
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+        .list-group-item:nth-child(odd) {
+            background-color: #f9f9f9;
+        }
+        .list-group-item:hover {
+            background-color: #f1f1f1;
+        }
+        .img-profile {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid #D8A7D1;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <header class="header-bg">
+        <h1>Bem-vindo ao Meu Blog Profissional</h1>
+    </header>
+
+    <div class="container mt-5">
+        <section>
+            <div class="card p-4">
+                <h2 class="card-title">Sobre Mim</h2>
+                <div class="text-center mb-4">
+                    {% if sobre.foto_perfil %}
+                        <img src="{{ sobre.foto_perfil.url }}" alt="Foto de Perfil" class="img-profile">
+                    {% endif %}
+                </div>
+                <p class="card-text">{{ sobre.biografia }}</p>
+                <a href="{% url 'sobre_mim' %}" class="btn btn-primary">Leia Mais</a>
+            </div>
+        </section>
+
+        <section>
+            <div class="card p-4">
+                <h2 class="card-title">Cursos Realizados</h2>
+                <ul class="list-group list-group-flush">
+                    {% for curso in cursos %}
+                    <li class="list-group-item">
+                        <strong>{{ curso.nome }}</strong> - Concluído em {{ curso.data_conclusao }}
+                    </li>
+                    {% endfor %}
+                </ul>
+                <a href="{% url 'cursos' %}" class="btn btn-primary">Veja Todos os Cursos</a>
+            </div>
+        </section>
+
+        <section>
+            <div class="card p-4">
+                <h2 class="card-title">Meus Interesses</h2>
+                <ul class="list-group list-group-flush">
+                    {% for interesse in interesses %}
+                    <li class="list-group-item">{{ interesse.titulo }}</li>
+                    {% endfor %}
+                </ul>
+                <a href="{% url 'interesses' %}" class="btn btn-primary">Veja Todos os Interesses</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Meu Blog Profissional. Todos os direitos reservados.</p>
+            <p>Siga-me nas redes sociais: 
+                <a href="#" class="text-decoration-none">LinkedIn</a> | 
+                <a href="#" class="text-decoration-none">GitHub</a> | 
+                <a href="#" class="text-decoration-none">Twitter</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
